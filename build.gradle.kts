@@ -4,8 +4,6 @@ plugins {
 
     id("org.jetbrains.kotlin.plugin.allopen") version "1.9.21"
 
-    id("org.jetbrains.kotlin.plugin.jpa") version "1.9.21"
-
     id("com.google.devtools.ksp") version "1.9.21-1.0.16"
 
     id("com.github.johnrengelman.shadow") version "8.1.1"
@@ -21,7 +19,7 @@ plugins {
 
 version = "0.1"
 
-group = "com.christech"
+group = "com.example"
 
 
 val kotlinVersion=project.properties.get("kotlinVersion")
@@ -35,25 +33,19 @@ repositories {
 
 dependencies {
 
-    ksp("io.micronaut.data:micronaut-data-processor")
+    ksp("io.micronaut.data:micronaut-data-document-processor")
 
     ksp("io.micronaut:micronaut-http-validation")
 
     ksp("io.micronaut.serde:micronaut-serde-processor")
 
-    implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
-
-    implementation("io.micronaut.flyway:micronaut-flyway")
-
-    implementation("io.micronaut.graphql:micronaut-graphql")
+    implementation("io.micronaut.data:micronaut-data-mongodb")
 
     implementation("io.micronaut.kotlin:micronaut-kotlin-runtime")
 
+    implementation("io.micronaut.mongodb:micronaut-mongo-sync")
+
     implementation("io.micronaut.serde:micronaut-serde-jackson")
-
-    implementation("io.micronaut.sql:micronaut-jdbc-hikari")
-
-    implementation("io.micronaut.sql:micronaut-jdbi")
 
     implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
 
@@ -65,14 +57,9 @@ dependencies {
 
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
 
-    runtimeOnly("org.postgresql:postgresql")
+    runtimeOnly("org.mongodb:mongodb-driver-sync")
 
     testImplementation("io.micronaut:micronaut-http-client")
-
-
-
-
-
 
 }
 
@@ -80,7 +67,7 @@ dependencies {
 
 application {
 
-    mainClass.set("com.christech.ApplicationKt")
+    mainClass.set("com.example.ApplicationKt")
 
 }
 
@@ -96,7 +83,7 @@ graalvmNative.toolchainDetection.set(false)
 
 micronaut {
 
-    runtime("tomcat")
+    runtime("netty")
 
     testRuntime("junit5")
 
@@ -104,7 +91,7 @@ micronaut {
 
         incremental(true)
 
-        annotations("com.christech.*")
+        annotations("com.example.*")
 
     }
 
