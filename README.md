@@ -1,28 +1,43 @@
-## Micronaut 4.2.4 Documentation
+# 📖 Book Collector
 
-- [User Guide](https://docs.micronaut.io/4.2.4/guide/index.html)
-- [API Reference](https://docs.micronaut.io/4.2.4/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/4.2.4/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
+A CRUD application that recieves information on the book you just read and stores it in DB
 
-- [Shadow Gradle Plugin](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow)
-- [Micronaut Gradle Plugin documentation](https://micronaut-projects.github.io/micronaut-gradle-plugin/latest/)
-- [GraalVM Gradle Plugin documentation](https://graalvm.github.io/native-build-tools/latest/gradle-plugin.html)
-## Feature micronaut-aot documentation
+## 📦 Tech Stack
 
-- [Micronaut AOT documentation](https://micronaut-projects.github.io/micronaut-aot/latest/guide/)
+- `Kotlin`
+- `Micronaut Framework`
+- `MongoDB Compass`
+- `MogoDB`
+- `Postman`
+
+## 🕹️ Features
+
+Here's what you can do with Book Collection:
+
+## 🖥️ The Process
+
+Details to be added soon.
+
+## 📚 What I Learned
+
+During this project, I've picked up important skills and a better understanding of complex ideas, which improved my logical thinking.
 
 
-## Feature ksp documentation
+## 🧠 How can it be improved?
 
-- [Micronaut Kotlin Symbol Processing (KSP) documentation](https://docs.micronaut.io/latest/guide/#kotlin)
+Details to be added soon.
 
-- [https://kotlinlang.org/docs/ksp-overview.html](https://kotlinlang.org/docs/ksp-overview.html)
+## 👟 Running the Project
 
+To run the project in your local environment, follow these steps:
 
-## Feature serialization-jackson documentation
+Details to be aded soon.
 
-- [Micronaut Serialization Jackson Core documentation](https://micronaut-projects.github.io/micronaut-serialization/latest/guide/)
+1. Clone the repository to your local machine.
+
+## 📺 Video
+
+Details to be added soon.
+
 
 
