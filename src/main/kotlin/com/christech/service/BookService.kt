@@ -12,6 +12,8 @@ class BookService (
         private val bookRepository: BookRepository
 ) {
 
+    //TODO: Add try catch blocks for un expected errors
+
     fun create(book: Book): Book =
             bookRepository.save(book)
 
@@ -34,6 +36,12 @@ class BookService (
         val updated = book.copy(id = found.id)
 
         return bookRepository.update(updated)
+    }
+
+    fun delete(id: String): Any {
+        val found = getById(id)
+
+        return bookRepository.delete(found)
     }
 
 }

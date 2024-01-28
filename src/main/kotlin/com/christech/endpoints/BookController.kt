@@ -37,6 +37,12 @@ class BookController(
     @Get("/{id}")
     fun getById(id: String) =
             bookService.getById(id)
+
+    @Delete("/{id}")
+    @Status(HttpStatus.NO_CONTENT)
+    fun delete(@Body @Valid id: String) {
+        bookService.delete(id)
+    }
     private fun BookRequest.toModel() : Book =
             Book(
                     title = this.title,
@@ -46,5 +52,6 @@ class BookController(
                     dayCompleted = this.dayCompleted,
                     rating = this.rating
             )
+
 
 }
