@@ -6,4 +6,5 @@ import io.micronaut.data.repository.CrudRepository
 
 @MongoRepository
 interface BookRepository : CrudRepository<Book, String> {
+    fun findByAuthor(author: String) : List<Book>
 }

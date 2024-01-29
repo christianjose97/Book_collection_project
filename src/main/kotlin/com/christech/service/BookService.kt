@@ -1,6 +1,7 @@
 package com.christech.service
 
 import com.christech.books.Book
+import com.christech.books.request.SearchRequestBook
 import com.christech.repository.BookRepository
 import io.micronaut.http.HttpStatus
 import io.micronaut.http.exceptions.HttpStatusException
@@ -43,5 +44,19 @@ class BookService (
 
         return bookRepository.delete(found)
     }
+
+    fun search(searchRequest: SearchRequestBook): List<Book> =
+        when {
+            searchRequest.title != null -> searchByTitle(searchRequest.title)
+            searchRequest.author != null -> searchByAuthor(searchRequest.author)
+            else -> emptyList()
+
+        }
+
+    private fun searchByAuthor(author: String) : List<Book> =
+        bookRepository.findByAuthor(author)
+
+    private fun searchByTitle(title: String) : List<Book> =
+        emptyList()
 
 }

@@ -2,6 +2,7 @@ package com.christech.endpoints
 
 import com.christech.books.Book
 import com.christech.books.request.BookRequest
+import com.christech.books.request.SearchRequestBook
 import com.christech.service.BookService
 import io.micronaut.http.HttpStatus
 import io.micronaut.http.annotation.*
@@ -43,6 +44,10 @@ class BookController(
     fun delete(@Body @Valid id: String) {
         bookService.delete(id)
     }
+
+    @Post("/search")
+    fun search(@Body @Valid searchRequest: SearchRequestBook) : List<Book> =
+        bookService.search(searchRequest)
     private fun BookRequest.toModel() : Book =
             Book(
                     title = this.title,
