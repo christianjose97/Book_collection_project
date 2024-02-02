@@ -5,7 +5,11 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import jakarta.inject.Inject
 
-@MicronautTest
+
+//This will runn the application AKA integration testing
+@MicronautTest(
+    environments = ["env-1"]
+)
 class Book_StorageTest {
 
     @Inject

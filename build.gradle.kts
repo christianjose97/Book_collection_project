@@ -61,6 +61,16 @@ dependencies {
 
     testImplementation("io.micronaut:micronaut-http-client")
 
+    testImplementation("io.micronaut.test:micronaut-test-rest-assured")
+
+
+
+
+    testImplementation("io.micronaut.test:micronaut-test-rest-assured")
+    testImplementation("io.mockk:mockk:1.13.8")
+    testAnnotationProcessor("io.micronaut:micronaut-inject-java")
+
+
 }
 
 

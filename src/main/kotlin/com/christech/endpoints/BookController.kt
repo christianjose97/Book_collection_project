@@ -6,9 +6,12 @@ import com.christech.books.request.SearchRequestBook
 import com.christech.service.BookService
 import io.micronaut.http.HttpStatus
 import io.micronaut.http.annotation.*
+import io.micronaut.scheduling.TaskExecutors
+import io.micronaut.scheduling.annotation.ExecuteOn
 import jakarta.validation.Valid
 
 @Controller("/book")
+@ExecuteOn(TaskExecutors.IO)
 class BookController(
     private val bookService: BookService
 )

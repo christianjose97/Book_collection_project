@@ -1,10 +1,12 @@
 package com.christech.books.request
 
 import io.micronaut.core.annotation.Introspected
+import io.micronaut.serde.annotation.Serdeable
 import io.micronaut.serde.annotation.Serdeable.Deserializable
 
 @Introspected
 @Deserializable
+@Serdeable.Serializable
 data class BookRequest(
         val title: String,
         val genre: String,
