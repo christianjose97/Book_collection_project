@@ -35,7 +35,7 @@ class BookControllerIT {
     fun `should create book entry` (spec: RequestSpecification) {
         val request = BookRequest(
             title = "IT test title",
-            genre = "IT test title",
+            genre = "IT test genre",
             author = "this.author",
             publishYear = 2023,
             dayCompleted = "02-01-2024",
@@ -54,15 +54,28 @@ class BookControllerIT {
             .get("/book")
             .then()
             .statusCode(200)
-            .body("size()", `is` (1))
         //verifies that size is equal to 1
             .extract()
             .`as`(object : TypeRef<List<com.christech.books.Book>>() {})
 
-        assertEquals(1, list.size)
+        // Find the created book in the list by title
+        val createdBook = list.find { it.title == request.title }
+            ?: throw AssertionError("Created book with title '${request.title}' not found")
 
-        val createdBook = list.first()
         assertEquals(request.title, createdBook.title)
+        assertEquals(request.genre, createdBook.genre)
+        assertEquals(request.author, createdBook.author)
+        assertEquals(request.publishYear, createdBook.publishYear)
+        assertEquals(request.dayCompleted, createdBook.dayCompleted)
+        assertEquals(request.rating, createdBook.rating)
+
+        //Clean up and delete IT test booka
+        spec
+            .`when`()
+            .delete("/book/${createdBook.id}")
+            .then()
+            .statusCode(204)
+
 
     }
 }
